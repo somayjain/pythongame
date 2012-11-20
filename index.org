@@ -1,0 +1,192 @@
+#+TITLE: ASSIGNMENT 4
+#+AUTHOR: SOMAY JAIN 201101054
+
+* Title ::
+  
+  Report on Robot Bomb Defuser Game.
+
+
+* Name and Roll Number ::
+
+- Somay Jain
+- 201101054
+
+
+* Code Organisation ::
+
+  I have made following 2 modules- 
+
+** Game :: 
+
+   - This has the source code which has most of the functions.
+   - It governs how the robot movement is implemented, how diffuse codes and mines, bomb are placed.
+   - It also takes care of how levels are implemented.
+     
+** Instructions ::
+
+   - This module takes care of the instructions printed on the starting page of the game.
+   - It tells the player the rules and the controls in the beginning of the game.
+
+
+
+* Class decomposition ::
+
+** Classes ::
+   
+   - There is one encapsulated class in the main game module.
+
+
+** Use of this class ::
+
+   - This class is made because it makes the main code encapsulated. The user running the game cannot change the values of variables.
+
+
+** Methods present ::
+
+*** addscreen ::
+
+    - This method adds a blank window in the terminal with the x, y coordinates, width and height as specified in the class variables.
+
+
+*** definecolors ::
+
+    - This method configures colors to be used.
+    
+    - The colors defined in this method can be used in other methods also.
+
+
+*** drawrobot ::
+
+    - This method adds the robot with a specefic shape in the middle of the window.
+
+    - The shape of the robot can be changed by changing this method.
+
+
+*** drawenemy ::
+    
+    - Similar to drawrobot, this draws the enemy robot on the coordinates specified in the method's arguments.
+
+    - Shape and position of the enemy robot can be changed by changing this method.
+
+
+*** addelements ::
+
+    - This method places the bomb, diffuse codes and mines(onwards level 2) in the terminal window on unique coordinates.
+    
+    - It also adds the robot and the enemy robot(onwards level 2) by calling the modules drawenemy and drawrobot.
+
+
+*** check ::
+
+    - This method checks if the robot has hit the bomb or a diffuse code or a mine/bullet.
+
+    - If it hits the bomb, the method returns -1.
+
+    - If it hits the diffuse code, it increases the count and returns the count.
+     
+    - If it hits the mine or a bullet, it returns -2.
+
+
+*** main ::
+
+    - This is the main method where most of the other methods are called.
+
+    - It takes care of all operations in a single level of the game.
+
+    - Wherever the robot is moved, it redraws the robot on the new location.
+
+    - This method also takes care of the pause and exit option in the game. When resumed, the game continues from the last stage before pausing.
+
+    - Also, the movement of bullets is also taken care by this method.
+
+    - For a particular level, it returns 'lost' variable, which contains the information that the player wins or loses the present level.
+
+
+*** result ::
+
+    - This method asks the player if he wants to play the next level if he wins the current level.
+
+    - It returns either 'y' or 'n', depending on whether the player wants to play the next level or not. 
+
+
+*** run ::
+
+    - This method calls the main method as many times as required (till levels are less than 5 and the player keeps on winning and wants to play the next level)
+
+    - It also shows the final score and status of the level on completion of a level.
+
+
+*** inst ::
+
+    - This method present in the module instructions, prints the instructions on starting the game.
+      
+    - The instructions contain the game rules and the controls of the game.
+
+
+* Advantages ::
+
+** Use of methods ::
+
+   - The use of methods for achieving small tasks made the code readable and understandable.
+
+   - It made debugging very easy.
+
+   - By using methods, repeatition of pieces of code does not take place.
+
+
+** Use of classes ::
+
+   - With the use of classes, the code is encapsulated and hence, the player cannot change any parameters in the game.
+
+
+** Reusability ::
+
+   - We can use methods such as addscreen, definecolors, drawrobot, drawenemy, check, etc to design a game with a slightly different logic.
+
+   - With slight changes in the 'main' method, we can design a game for a different GUI as well. 
+
+
+
+* Miscellaneous ::
+
+** Program flow ::
+
+   - For each level, the window is made using the addscreen method.
+
+   - Colors are configured for the window made using definecolors method.
+
+   - According to the level the player is in, the elements are added in the window at random positions.
+
+   - After this initialisation, the keyboard presses are recorded and acted upon by the while loop in the 'main' method.
+
+   - When the user presses ESC or hits the wall/mine/bomb, this loop is broken and the procedure is repeated depending on whether the player won or lost, and if he wants to play the next level or not.
+
+** Logic ::
+
+   - The logic resides in the 'main' method.
+
+   - When the player presses any of the arrow keys, the new location of the robot is decided and it is redrawn there.
+
+   - Also, the characters present on the new coordinates are acquired and feeded to the check method.
+
+   - Depending on the output of the check method, level is continued or stopped.
+
+
+* Extra features ::
+
+   - Extra features are included onwards level 2.
+
+   - Extra features include -
+
+     - Mines (number of mines increase on advancing levels) 
+     
+     - Enemy robots and the bullets shot by these enemy robots.
+
+     - As the diffuse codes are obtained, the speed of the robot increases.
+
+     - Speed also increases on advancing the levels.
+
+
+* Screenshots ::
+
+ 
